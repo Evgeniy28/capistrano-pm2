@@ -30,7 +30,7 @@ namespace :pm2 do
 
   desc 'Start pm2 application'
   task :start do
-    run_task :pm2, :start, fetch(:pm2_app_command), "--name #{app_name} #{fetch(:pm2_start_params)}"
+    run_task :pm2, :start, "npm --name #{app_name} #{fetch(:pm2_start_params)}"
   end
 
   desc 'Stop pm2 application'
@@ -102,7 +102,7 @@ end
 
 namespace :load do
   task :defaults do
-    set :pm2_app_command, 'main.js'
+    set :pm2_app_command, ''
     set :pm2_app_name, nil
     set :pm2_start_params, ''
     set :pm2_roles, :all
